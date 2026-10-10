@@ -12,8 +12,8 @@ import UserDashboard from './components/UserDashboard';
 import AdminPortal from './components/AdminPortal';
 import AuthModal from './components/AuthModal';
 import CommandPalette from './components/CommandPalette';
-import { AlertCircle, MessageSquare, Mail } from 'lucide-react';
-import { API_BASE } from './config';
+import { AlertCircle, MessageSquare, Mail, RefreshCw } from 'lucide-react';
+import { API_BASE, IS_PRODUCTION, HAS_CUSTOM_API } from './config';
 
 export default function App() {
   const [summary, setSummary] = useState(null);
@@ -77,11 +77,21 @@ export default function App() {
     setActiveSection('landing');
   };
 
-  // Fetch all master datasets from FastAPI on mount
+  const [retryCount, setRetryCount] = useState(0);
+
+  // Fetch all master datasets from FastAPI on mount or retry
   useEffect(() => {
     async function fetchData() {
+      // If deployed in production and no API URL configured
+      if (IS_PRODUCTION && !HAS_CUSTOM_API && !API_BASE) {
+        setLoading(false);
+        setError("Live Backend URL is missing. Please add the environment variable VITE_API_BASE_URL=<your-render-backend-url> in your Vercel Project Settings, then Redeploy.");
+        return;
+      }
+
       try {
         setLoading(true);
+        setError(null);
         const [sumRes, wardsRes, facRes] = await Promise.all([
           fetch(`${API_BASE}/api/summary`),
           fetch(`${API_BASE}/api/wards`),
@@ -109,14 +119,18 @@ export default function App() {
         setError(null);
       } catch (err) {
         console.error(err);
-        setError('Cannot connect to backend server. Please verify backend is running on port 8000.');
+        if (IS_PRODUCTION) {
+          setError(`Unable to connect to backend at "${API_BASE || '(relative URL)'}". Note: Render free tier takes ~30–50 seconds to wake up on first visit.`);
+        } else {
+          setError('Cannot connect to local backend server. Please verify backend is running on port 8000.');
+        }
       } finally {
         setLoading(false);
       }
     }
 
     fetchData();
-  }, []);
+  }, [retryCount]);
 
   // Global Keyboard shortcuts: Cmd+K / Ctrl+K
   useEffect(() => {
@@ -212,11 +226,38 @@ export default function App() {
         )}
 
         {error && (
-          <div style={{ backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--color-danger)', borderRadius: '8px', padding: '14px 18px', color: '#fca5a5', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <AlertCircle size={16} color="var(--color-danger)" />
-            <div style={{ fontSize: '13px' }}>
-              <b>Connection issue:</b> {error}
+          <div style={{ backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--color-danger)', borderRadius: '8px', padding: '16px 20px', color: '#fca5a5', marginBottom: '24px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '14px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', flex: 1 }}>
+              <AlertCircle size={20} color="var(--color-danger)" style={{ marginTop: '2px', flexShrink: 0 }} />
+              <div>
+                <div style={{ fontSize: '14px', fontWeight: 600, color: '#fecaca', marginBottom: '4px' }}>
+                  Connection Issue
+                </div>
+                <div style={{ fontSize: '13px', lineHeight: 1.5, color: '#fca5a5' }}>
+                  {error}
+                </div>
+              </div>
             </div>
+            <button
+              onClick={() => setRetryCount(c => c + 1)}
+              style={{
+                backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                border: '1px solid rgba(239, 68, 68, 0.4)',
+                borderRadius: '6px',
+                color: '#fee2e2',
+                padding: '6px 14px',
+                fontSize: '12px',
+                fontWeight: 600,
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                alignSelf: 'center'
+              }}
+            >
+              <RefreshCw size={13} />
+              Retry Connection
+            </button>
           </div>
         )}
 
