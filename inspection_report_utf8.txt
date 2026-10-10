@@ -1,0 +1,319 @@
+﻿================================================================================
+INSPECTING DATASETS IN: d:\Projects\EWaste-mini\ewaste-datasets
+================================================================================
+
+--- FILE: 43c17944-e918-4270-ae91-63f986adfb93.csv (29.66 KB) ---
+Shape: (65, 94)
+Columns (94): ['State', 'District', 'Subdistt', 'Town/Village', 'Ward', 'EB', 'Level', 'Name', 'TRU', 'No_HH', 'TOT_P', 'TOT_M', 'TOT_F', 'P_06', 'M_06', 'F_06', 'P_SC', 'M_SC', 'F_SC', 'P_ST', 'M_ST', 'F_ST', 'P_LIT', 'M_LIT', 'F_LIT', 'P_ILL', 'M_ILL', 'F_ILL', 'TOT_WORK_P', 'TOT_WORK_M', 'TOT_WORK_F', 'MAINWORK_P', 'MAINWORK_M', 'MAINWORK_F', 'MAIN_CL_P', 'MAIN_CL_M', 'MAIN_CL_F', 'MAIN_AL_P', 'MAIN_AL_M', 'MAIN_AL_F', 'MAIN_HH_P', 'MAIN_HH_M', 'MAIN_HH_F', 'MAIN_OT_P', 'MAIN_OT_M', 'MAIN_OT_F', 'MARGWORK_P', 'MARGWORK_M', 'MARGWORK_F', 'MARG_CL_P', 'MARG_CL_M', 'MARG_CL_F', 'MARG_AL_P', 'MARG_AL_M', 'MARG_AL_F', 'MARG_HH_P', 'MARG_HH_M', 'MARG_HH_F', 'MARG_OT_P', 'MARG_OT_M', 'MARG_OT_F', 'MARGWORK_3_6_P', 'MARGWORK_3_6_M', 'MARGWORK_3_6_F', 'MARG_CL_3_6_P', 'MARG_CL_3_6_M', 'MARG_CL_3_6_F', 'MARG_AL_3_6_P', 'MARG_AL_3_6_M', 'MARG_AL_3_6_F', 'MARG_HH_3_6_P', 'MARG_HH_3_6_M', 'MARG_HH_3_6_F', 'MARG_OT_3_6_P', 'MARG_OT_3_6_M', 'MARG_OT_3_6_F', 'MARGWORK_0_3_P', 'MARGWORK_0_3_M', 'MARGWORK_0_3_F', 'MARG_CL_0_3_P', 'MARG_CL_0_3_M', 'MARG_CL_0_3_F', 'MARG_AL_0_3_P', 'MARG_AL_0_3_M', 'MARG_AL_0_3_F', 'MARG_HH_0_3_P', 'MARG_HH_0_3_M', 'MARG_HH_0_3_F', 'MARG_OT_0_3_P', 'MARG_OT_0_3_M', 'MARG_OT_0_3_F', 'NON_WORK_P', 'NON_WORK_M', 'NON_WORK_F']
+Head preview:
+   State  District  Subdistt  ...  NON_WORK_P  NON_WORK_M  NON_WORK_F
+0     27       518         0  ...     5621941     2087001     3534940
+1     27       518         0  ...           0           0           0
+2     27       518         0  ...     5621941     2087001     3534940
+
+[3 rows x 94 columns]
+Summary Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 65 entries, 0 to 64
+Data columns (total 94 columns):
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   State           65 non-null     int64 
+ 1   District        65 non-null     int64 
+ 2   Subdistt        65 non-null     int64 
+ 3   Town/Village    65 non-null     int64 
+ 4   Ward            65 non-null     int64 
+ 5   EB              65 non-null     int64 
+ 6   Level           65 non-null     object
+ 7   Name            65 non-null     object
+ 8   TRU             65 non-null     object
+ 9   No_HH           65 non-null     int64 
+ 10  TOT_P           65 non-null     int64 
+ 11  TOT_M           65 non-null     int64 
+ 12  TOT_F           65 non-null     int64 
+ 13  P_06            65 non-null     int64 
+ 14  M_06            65 non-null     int64 
+ 15  F_06            65 non-null     int64 
+ 16  P_SC            65 non-null     int64 
+ 17  M_SC            65 non-null     int64 
+ 18  F_SC            65 non-null     int64 
+ 19  P_ST            65 non-null     int64 
+ 20  M_ST            65 non-null     int64 
+ 21  F_ST            65 non-null     int64 
+ 22  P_LIT           65 non-null     int64 
+ 23  M_LIT           65 non-null     int64 
+ 24  F_LIT           65 non-null     int64 
+ 25  P_ILL           65 non-null     int64 
+ 26  M_ILL           65 non-null     int64 
+ 27  F_ILL           65 non-null     int64 
+ 28  TOT_WORK_P      65 non-null     int64 
+ 29  TOT_WORK_M      65 non-null     int64 
+ 30  TOT_WORK_F      65 non-null     int64 
+ 31  MAINWORK_P      65 non-null     int64 
+ 32  MAINWORK_M      65 non-null     int64 
+ 33  MAINWORK_F      65 non-null     int64 
+ 34  MAIN_CL_P       65 non-null     int64 
+ 35  MAIN_CL_M       65 non-null     int64 
+ 36  MAIN_CL_F       65 non-null     int64 
+ 37  MAIN_AL_P       65 non-null     int64 
+ 38  MAIN_AL_M       65 non-null     int64 
+ 39  MAIN_AL_F       65 non-null     int64 
+ 40  MAIN_HH_P       65 non-null     int64 
+ 41  MAIN_HH_M       65 non-null     int64 
+ 42  MAIN_HH_F       65 non-null     int64 
+ 43  MAIN_OT_P       65 non-null     int64 
+ 44  MAIN_OT_M       65 non-null     int64 
+ 45  MAIN_OT_F       65 non-null     int64 
+ 46  MARGWORK_P      65 non-null     int64 
+ 47  MARGWORK_M      65 non-null     int64 
+ 48  MARGWORK_F      65 non-null     int64 
+ 49  MARG_CL_P       65 non-null     int64 
+ 50  MARG_CL_M       65 non-null     int64 
+ 51  MARG_CL_F       65 non-null     int64 
+ 52  MARG_AL_P       65 non-null     int64 
+ 53  MARG_AL_M       65 non-null     int64 
+ 54  MARG_AL_F       65 non-null     int64 
+ 55  MARG_HH_P       65 non-null     int64 
+ 56  MARG_HH_M       65 non-null     int64 
+ 57  MARG_HH_F       65 non-null     int64 
+ 58  MARG_OT_P       65 non-null     int64 
+ 59  MARG_OT_M       65 non-null     int64 
+ 60  MARG_OT_F       65 non-null     int64 
+ 61  MARGWORK_3_6_P  65 non-null     int64 
+ 62  MARGWORK_3_6_M  65 non-null     int64 
+ 63  MARGWORK_3_6_F  65 non-null     int64 
+ 64  MARG_CL_3_6_P   65 non-null     int64 
+ 65  MARG_CL_3_6_M   65 non-null     int64 
+ 66  MARG_CL_3_6_F   65 non-null     int64 
+ 67  MARG_AL_3_6_P   65 non-null     int64 
+ 68  MARG_AL_3_6_M   65 non-null     int64 
+ 69  MARG_AL_3_6_F   65 non-null     int64 
+ 70  MARG_HH_3_6_P   65 non-null     int64 
+ 71  MARG_HH_3_6_M   65 non-null     int64 
+ 72  MARG_HH_3_6_F   65 non-null     int64 
+ 73  MARG_OT_3_6_P   65 non-null     int64 
+ 74  MARG_OT_3_6_M   65 non-null     int64 
+ 75  MARG_OT_3_6_F   65 non-null     int64 
+ 76  MARGWORK_0_3_P  65 non-null     int64 
+ 77  MARGWORK_0_3_M  65 non-null     int64 
+ 78  MARGWORK_0_3_F  65 non-null     int64 
+ 79  MARG_CL_0_3_P   65 non-null     int64 
+ 80  MARG_CL_0_3_M   65 non-null     int64 
+ 81  MARG_CL_0_3_F   65 non-null     int64 
+ 82  MARG_AL_0_3_P   65 non-null     int64 
+ 83  MARG_AL_0_3_M   65 non-null     int64 
+ 84  MARG_AL_0_3_F   65 non-null     int64 
+ 85  MARG_HH_0_3_P   65 non-null     int64 
+ 86  MARG_HH_0_3_M   65 non-null     int64 
+ 87  MARG_HH_0_3_F   65 non-null     int64 
+ 88  MARG_OT_0_3_P   65 non-null     int64 
+ 89  MARG_OT_0_3_M   65 non-null     int64 
+ 90  MARG_OT_0_3_F   65 non-null     int64 
+ 91  NON_WORK_P      65 non-null     int64 
+ 92  NON_WORK_M      65 non-null     int64 
+ 93  NON_WORK_F      65 non-null     int64 
+dtypes: int64(91), object(3)
+memory usage: 47.9+ KB
+None
+
+--- FILE: 882eff2a-804a-4ba8-a7af-3553b208983b.xlsx (49.80 KB) ---
+Sheet names: ['Sheet1', 'Sheet2', 'Sheet3']
+  Sheet 'Sheet1' - Shape: (50, 145)
+  Columns: ['HOUSELISTING & HOUSING CENSUS, 2011', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14']... (145 total)
+  Preview:
+                 HOUSELISTING & HOUSING CENSUS, 2011  ... Unnamed: 144
+0  TABLE HH-14 : PERCENTAGE OF HOUSEHOLDS TO TOTA...  ...          NaN
+1                                                NaN  ...          NaN
+
+[2 rows x 145 columns]
+  Sheet 'Sheet2' - Shape: (0, 0)
+  Columns: []... (0 total)
+  Preview:
+Empty DataFrame
+Columns: []
+Index: []
+  Sheet 'Sheet3' - Shape: (0, 0)
+  Columns: []... (0 total)
+  Preview:
+Empty DataFrame
+Columns: []
+Index: []
+
+--- FILE: 95e22d97-7f59-4214-b244-2abbf52e6027.csv (15.18 KB) ---
+Shape: (97, 20)
+Columns (20): ['Sl No', 'State Code', 'State Name', 'District Code', 'District Name', 'Sub dist code', 'Sub dist name', 'Town Code', 'Town Name', 'Ward Code', 'Total Population', 'Total Males', 'Total Females', 'SC Population', 'SC Males', 'SC Females', 'ST Population', 'ST Males', 'ST Females', 'Ward Name']
+Head preview:
+   Sl No  State Code   State Name  ...  ST Males ST Females  Ward Name
+0      1          27  MAHARASHTRA  ...       326        262        H/E
+1      2          27  MAHARASHTRA  ...      1037        765        H/E
+2      3          27  MAHARASHTRA  ...      1084        706        H/E
+
+[3 rows x 20 columns]
+Summary Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 97 entries, 0 to 96
+Data columns (total 20 columns):
+ #   Column            Non-Null Count  Dtype 
+---  ------            --------------  ----- 
+ 0   Sl No             97 non-null     int64 
+ 1   State Code        97 non-null     int64 
+ 2   State Name        97 non-null     object
+ 3   District Code     97 non-null     int64 
+ 4   District Name     97 non-null     object
+ 5   Sub dist code     97 non-null     int64 
+ 6   Sub dist name     97 non-null     object
+ 7   Town Code         97 non-null     int64 
+ 8   Town Name         97 non-null     object
+ 9   Ward Code         97 non-null     int64 
+ 10  Total Population  97 non-null     int64 
+ 11  Total Males       97 non-null     int64 
+ 12  Total Females     97 non-null     int64 
+ 13  SC Population     97 non-null     int64 
+ 14  SC Males          97 non-null     int64 
+ 15  SC Females        97 non-null     int64 
+ 16  ST Population     97 non-null     int64 
+ 17  ST Males          97 non-null     int64 
+ 18  ST Females        97 non-null     int64 
+ 19  Ward Name         97 non-null     object
+dtypes: int64(15), object(5)
+memory usage: 15.3+ KB
+None
+
+--- FILE: Authorised_E-Waste_Recyclers_&_Refurbishers-March-2024.pdf (406.08 KB) ---
+PDF Pages: 22
+--- Page 1 text sample (first 400 chars): ---
+Sr. No. Name and Address of Industry Regional Office Type
+Capacity Allotted as per 
+Consent / Authorisation 
+(MT/A)
+Consent / Authorization No. & Issue Date
+Validity of 
+Consent / 
+Authorization
+E-mail Address Contact Number
+1
+Arihant E Recycling Pvt Ltd, Gut 
+No.307/1, Shahada Road, 
+Dondaicha, Tal. Sindkheda, Dist. 
+Dhule.
+Nashik Recycler 2000
+Consent No. Format 1.0/RO-HQ/UAN No. 
+0000115030/CR-
+--- Page 2 text sample (first 400 chars): ---
+11
+S V Greentech Private Limited, Gut 
+No. 517/1, & 529, Village: Kelthan 
+Tal. Wada, Dist. Palghar
+Thane Recycler 8500
+Consent No.  Format1.0/RO-HQ/UAN
+No.0000141483/CO/2305001023
+Date: 15/05/2023
+Auth No. MPCB/RO(HQ)/HSMD/Autho/23/ 
+EW-60 Date: 29/03/2023
+29-02-2028 rihanmalik986@gmail.com 9371106436
+12
+Global E-Recycling Pvt Ltd.,  Plot No 
+2,3,4 Sr No 11 H No 1/1, 
+Wakanpada Dhaniv, Palghar
+Th
+--- Page 3 text sample (first 400 chars): ---
+20
+Tarai Projects Pvt. Ltd., Gut No. 
+14/1/A, Atar Mala, Near Shivsagar 
+Hotel, Manchar, Tal. Machar, Dist. 
+Pune
+Pune Recycler 560
+Consent No. Format1.0/RO-HQ/UAN No. 
+0000158706/CO/2305001881 Date: 
+24/05/2023
+30/04/2025 taraiprojects2018@gmail.
+com 7020687230
+21
+Jeenali Trading & Comm. Serv. Pvt. 
+Ltd., Gut No. 68/1, Village Khupri, 
+Tal. Wada, Dist. Palghar
+Kalyan Recycler 7847
+Consent No. For
+
+--- FILE: BMC_Wards.geojson (971.39 KB) ---
+GeoDataFrame Shape: (24, 3)
+CRS: EPSG:4326
+Columns: ['gid', 'name', 'geometry']
+Geometry types: {'MultiPolygon': 24}
+Attribute preview:
+   gid name
+0    1    A
+1    2    B
+2    3    C
+3    4    D
+4    5    E
+
+--- FILE: RS_Session_265_AU_1177_A_to_C.csv (0.14 KB) ---
+Shape: (3, 3)
+Columns (3): ['Financial Year', 'E-Waste Generation (Tonne)', 'E-Waste Recycled (Tonne)']
+Head preview:
+  Financial Year  E-Waste Generation (Tonne)  E-Waste Recycled (Tonne)
+0        2021-22                     1601155                    527132
+1        2022-23                     1609117                    539256
+2        2023-24                     1751236                    760663
+Summary Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3 entries, 0 to 2
+Data columns (total 3 columns):
+ #   Column                      Non-Null Count  Dtype 
+---  ------                      --------------  ----- 
+ 0   Financial Year              3 non-null      object
+ 1   E-Waste Generation (Tonne)  3 non-null      int64 
+ 2   E-Waste Recycled (Tonne)    3 non-null      int64 
+dtypes: int64(2), object(1)
+memory usage: 204.0+ bytes
+None
+
+--- FILE: c5f1b779-e62f-4ec6-b7b1-aadc4feb9882 (1).xlsx (65.64 KB) ---
+Sheet names: ['Sheet1', 'Sheet2', 'Sheet3']
+  Sheet 'Sheet1' - Shape: (69, 145)
+  Columns: ['HOUSELISTING & HOUSING CENSUS, 2011', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14']... (145 total)
+  Preview:
+                 HOUSELISTING & HOUSING CENSUS, 2011  ... Unnamed: 144
+0  TABLE HH-14 : PERCENTAGE OF HOUSEHOLDS TO TOTA...  ...          NaN
+1                                                NaN  ...          NaN
+
+[2 rows x 145 columns]
+  Sheet 'Sheet2' - Shape: (0, 0)
+  Columns: []... (0 total)
+  Preview:
+Empty DataFrame
+Columns: []
+Index: []
+  Sheet 'Sheet3' - Shape: (0, 0)
+  Columns: []... (0 total)
+  Preview:
+Empty DataFrame
+Columns: []
+Index: []
+
+--- FILE: c5f1b779-e62f-4ec6-b7b1-aadc4feb9882.xlsx (65.64 KB) ---
+Sheet names: ['Sheet1', 'Sheet2', 'Sheet3']
+  Sheet 'Sheet1' - Shape: (69, 145)
+  Columns: ['HOUSELISTING & HOUSING CENSUS, 2011', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14']... (145 total)
+  Preview:
+                 HOUSELISTING & HOUSING CENSUS, 2011  ... Unnamed: 144
+0  TABLE HH-14 : PERCENTAGE OF HOUSEHOLDS TO TOTA...  ...          NaN
+1                                                NaN  ...          NaN
+
+[2 rows x 145 columns]
+  Sheet 'Sheet2' - Shape: (0, 0)
+  Columns: []... (0 total)
+  Preview:
+Empty DataFrame
+Columns: []
+Index: []
+  Sheet 'Sheet3' - Shape: (0, 0)
+  Columns: []... (0 total)
+  Preview:
+Empty DataFrame
+Columns: []
+Index: []
+
+--- FILE: western-zone-261005.osm.pbf (215710.66 KB) ---
+OSM PBF file detected. Western zone OSM vector extract.
