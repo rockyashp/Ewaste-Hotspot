@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Lock, Mail, User, Phone, MapPin, ShieldCheck, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
+import { API_BASE } from '../config';
 
 export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
   const [isRegister, setIsRegister] = useState(false);
@@ -21,7 +22,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
     setError(null);
     setLoading(true);
 
-    const endpoint = isRegister ? 'http://127.0.0.1:8000/api/auth/register' : 'http://127.0.0.1:8000/api/auth/login';
+    const endpoint = isRegister ? `${API_BASE}/api/auth/register` : `${API_BASE}/api/auth/login`;
     const payload = isRegister
       ? { name, email, password, phone, locality }
       : { email, password };

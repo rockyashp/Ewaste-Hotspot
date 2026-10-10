@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import L from 'leaflet';
 import { ShieldCheck, Truck, Users, Package, CheckCircle2, Clock, Filter, AlertCircle, RefreshCw, Edit3, Compass, MapPin } from 'lucide-react';
+import { API_BASE } from '../config';
 
 const WARD_COORDS = {
   'K/W': [19.1364, 72.8277],
@@ -40,17 +41,17 @@ export default function AdminPortal({ adminUser, token }) {
     if (!token) return;
     setLoading(true);
     try {
-      let ticketsUrl = 'http://127.0.0.1:8000/api/admin/tickets';
+      let ticketsUrl = `${API_BASE}/api/admin/tickets`;
       const params = new URLSearchParams();
       if (wardFilter) params.append('ward', wardFilter);
       if (statusFilter) params.append('status_filter', statusFilter);
       if (params.toString()) ticketsUrl += `?${params.toString()}`;
 
       const [overviewRes, ticketsRes, usersRes, ewasteRes] = await Promise.all([
-        fetch('http://127.0.0.1:8000/api/admin/overview', { headers: { Authorization: `Bearer ${token}` } }),
+        fetch(`${API_BASE}/api/admin/overview`, { headers: { Authorization: `Bearer ${token}` } }),
         fetch(ticketsUrl, { headers: { Authorization: `Bearer ${token}` } }),
-        fetch('http://127.0.0.1:8000/api/admin/users', { headers: { Authorization: `Bearer ${token}` } }),
-        fetch('http://127.0.0.1:8000/api/admin/ewaste', { headers: { Authorization: `Bearer ${token}` } })
+        fetch(`${API_BASE}/api/admin/users`, { headers: { Authorization: `Bearer ${token}` } }),
+        fetch(`${API_BASE}/api/admin/ewaste`, { headers: { Authorization: `Bearer ${token}` } })
       ]);
 
       if (overviewRes.ok) setOverview(await overviewRes.json());
@@ -67,7 +68,7 @@ export default function AdminPortal({ adminUser, token }) {
   const handleUpdateStatus = async (ticketId, newStatus) => {
     setUpdatingId(ticketId);
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/admin/tickets/${ticketId}/status`, {
+      const res = await fetch(`${API_BASE}/api/admin/tickets/${ticketId}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

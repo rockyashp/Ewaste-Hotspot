@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import L from 'leaflet';
 import { Truck, Calendar, Building, Phone, CheckCircle2, Share2, Printer, ArrowRight, ShieldCheck, AlertCircle, MapPin, Navigation, Compass } from 'lucide-react';
+import { API_BASE } from '../config';
 
 const MUMBAI_WARDS_PICKUP = [
   { code: 'K/W', name: 'Andheri West / Juhu / Oshiwara', defaultVan: 'Van Fleet #KW-04', lat: 19.1364, lng: 72.8277, depot: 'Versova Municipal Depot' },
@@ -200,7 +201,7 @@ export default function CitizenSocietyPickup({ onLocateDropoff, user, token }) {
     if (token) headers['Authorization'] = `Bearer ${token}`;
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/tickets/create', {
+      const res = await fetch(`${API_BASE}/api/tickets/create`, {
         method: 'POST',
         headers,
         body: JSON.stringify({

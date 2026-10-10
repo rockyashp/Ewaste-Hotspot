@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Package, Truck, Sparkles, Trash2, ArrowRight, CheckCircle2, Clock, MapPin, Award } from 'lucide-react';
+import { API_BASE } from '../config';
 
 const DEVICE_TYPES = [
   { type: 'Smartphone / Tablet', defaultGold: 0.034, defaultLead: 1.5, estValue: 450 },
@@ -34,10 +35,10 @@ export default function UserDashboard({ user, token, onOpenBookVan }) {
     setLoading(true);
     try {
       const [itemsRes, ticketsRes] = await Promise.all([
-        fetch('http://127.0.0.1:8000/api/ewaste/my-items', {
+        fetch(`${API_BASE}/api/ewaste/my-items`, {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        fetch('http://127.0.0.1:8000/api/tickets/my-tickets', {
+        fetch(`${API_BASE}/api/tickets/my-tickets`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);
@@ -67,7 +68,7 @@ export default function UserDashboard({ user, token, onOpenBookVan }) {
     const estLead = devMeta.defaultLead * quantity;
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/ewaste/log', {
+      const res = await fetch(`${API_BASE}/api/ewaste/log`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

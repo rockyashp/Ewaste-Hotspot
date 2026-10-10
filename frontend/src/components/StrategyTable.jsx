@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Download, Search } from 'lucide-react';
+import { API_BASE } from '../config';
 
 export default function StrategyTable({ wardsData, onSelectWard }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,7 +18,7 @@ export default function StrategyTable({ wardsData, onSelectWard }) {
   });
 
   const handleDownloadCsv = () => {
-    window.open('http://127.0.0.1:8000/api/export', '_blank');
+    window.open(`${API_BASE}/api/export`, '_blank');
   };
 
   return (

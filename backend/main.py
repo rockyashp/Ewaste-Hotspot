@@ -16,7 +16,8 @@ import pandas as pd
 from typing import List, Optional
 from fastapi import FastAPI, HTTPException, Depends, Query, status
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, Response
+from fastapi.responses import JSONResponse, Response, FileResponse
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 
 from database import engine, Base, get_db, SessionLocal
@@ -378,3 +379,23 @@ def list_all_ewaste_items(
     db: Session = Depends(get_db)
 ):
     return db.query(models.EWasteItem).order_by(models.EWasteItem.created_at.desc()).all()
+
+# --------------------------------------------------------------------------
+# OPTIONAL SINGLE-SERVICE FRONTEND MOUNTING (Production Full-Stack Mode)
+# --------------------------------------------------------------------------
+FRONTEND_DIST = os.path.join(BASE_DIR, "frontend", "dist")
+if os.path.exists(FRONTEND_DIST):
+    assets_dir = os.path.join(FRONTEND_DIST, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+    @app.get("/{full_path:path}")
+    def serve_frontend_spa(full_path: str):
+        # Do not intercept API, docs, or OpenAPI routes
+        if full_path.startswith("api") or full_path.startswith("docs") or full_path.startswith("openapi.json"):
+            raise HTTPException(status_code=404, detail="Not Found")
+        target_file = os.path.join(FRONTEND_DIST, full_path)
+        if full_path and os.path.exists(target_file) and os.path.isfile(target_file):
+            return FileResponse(target_file)
+        return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
+
